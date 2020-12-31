@@ -3,7 +3,9 @@
   nx-header
   fxFlex="80"
   fxFlex.lt-lg="100">
-  <nx-header-brand class="nx-margin-right-l">
+  <nx-header-brand
+    class="nx-margin-right-l"
+    [fxHide]="menuToggled">
     <nx-link>
       <a routerLink="./">
         <figure nxFigure>
@@ -17,20 +19,36 @@
       </a>
     </nx-link>
   </nx-header-brand>
-  <nx-header-navigation>
-    <nx-header-navigation-item>
-      <a
-        nxHeaderLink
-        routerLink="./">
-        Recent
-      </a>
-    </nx-header-navigation-item>
-    <nx-header-navigation-item>
-      <a
-        nxHeaderLink
-        routerLink="./">
-        ...
-      </a>
-    </nx-header-navigation-item>
+  <nx-header-navigation fxHide.lt-md>
+    <ng-container *ngFor="let entity of stub">
+      <nx-header-navigation-item>
+        <a
+          nxHeaderLink
+          routerLink="./">
+          {{entity}}
+        </a>
+      </nx-header-navigation-item>
+    </ng-container>
   </nx-header-navigation>
+  <ng-container *ngIf="menuToggled">
+    <span fxFlex></span>
+  </ng-container>
+  <nx-header-actions
+    class="nx-margin-right-m nx-margin-bottom-s"
+    fxHide.gt-sm
+    [style.z-index]=2>
+    <pb-hamburger (click)="onMenuToggle(menu)"></pb-hamburger>
+  </nx-header-actions>
 </header>
+
+<nx-menu #menu>
+  <div
+    #menu_wrapper
+    class="header__menu"
+    fxLayout="column"
+    fxLayoutGap="40px">
+    <ng-container *ngFor="let entity of stub">
+      <a>{{entity}}</a>
+    </ng-container>
+  </div>
+</nx-menu>

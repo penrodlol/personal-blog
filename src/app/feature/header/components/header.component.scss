@@ -6,5 +6,50 @@
   padding: 0 !important;
   letter-spacing: 5px;
   font-weight: 700;
-  color: #E3DAC9;
+  color: var(--text-01);
+
+  @keyframes slideIn {
+    0% { opacity: 0; }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% { opacity: 0; }
+  }
+
+  &__menu {
+    padding: 100px 50px;
+    height: 100vh;
+    color: var(--text-01);
+    font-size: var(--font-2xl);
+    letter-spacing: 5px;
+    font-weight: bold;
+
+    a {
+      transform: translateX(-250px);
+      animation: slideIn 500ms forwards;
+
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) { animation-delay: 50ms * $i; }
+      }
+    }
+
+    &--opened {
+      a {
+        transform: translateX(-250px);
+        animation: slideOut 300ms forwards;
+
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) { animation-delay: 30ms / $i; }
+        }
+      }
+    }
+  }
 }
