@@ -1,0 +1,36 @@
+<header
+  class="header"
+  nx-header
+  fxFlex="80"
+  fxFlex.lt-lg="100">
+  <nx-header-brand class="nx-margin-right-l">
+    <nx-link>
+      <a routerLink="./">
+        <figure nxFigure>
+          <img
+            src="assets/image/logo.svg"
+            alt="Brand Logo"
+            role="none"
+            height="100px"
+            width="100px">
+        </figure>
+      </a>
+    </nx-link>
+  </nx-header-brand>
+  <nx-header-navigation>
+    <nx-header-navigation-item>
+      <a
+        nxHeaderLink
+        routerLink="./">
+        Recent
+      </a>
+    </nx-header-navigation-item>
+    <nx-header-navigation-item>
+      <a
+        nxHeaderLink
+        routerLink="./">
+        ...
+      </a>
+    </nx-header-navigation-item>
+  </nx-header-navigation>
+</header>

@@ -1,1 +1,24 @@
-<h1>Christian Penrod's Personal Blog</h1>
+<div class="personal-blog">
+  <section class="personal-blog__content">
+    <pb-header></pb-header>
+    <router-outlet></router-outlet>
+  </section>
+  
+  <section class="personal-blog__wave">
+    <svg
+      id="bg-svg"
+      class="transition duration-300 ease-in-out delay-150"
+      height="100%"
+      width="100%"
+      viewBox="0 0 1440 500"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M 0,500 C 0,500 0,250 0,250 C 205.71428571428572,321.42857142857144 822.8571428571429,285.7142857142857 1440,250 C 1440,250 1440,500 1440,500 Z"
+        stroke="none"
+        stroke-width="0"
+        fill="#29274cff"
+        class="transition-all duration-300 ease-in-out delay-150">
+      </path>
+    </svg>
+  </section>
+</div>

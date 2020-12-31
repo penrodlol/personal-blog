@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
+@import "@angular/cdk/overlay-prebuilt.css";
+@import "@angular/cdk/a11y-prebuilt.css";
+@import "@aposin/ng-aquila/css/utilities.css";
+@import 'theme';
+@import 'font-sizes';
+
+@include nx-build-theme(personal-blog-theme);
+
+html, body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Fira Code', monospace;
+}

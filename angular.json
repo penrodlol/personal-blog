@@ -28,8 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@aposin/ng-aquila/css/normalize.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -122,6 +128,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "personal-blog"
+    }
+  },
+  "defaultProject": "personal-blog",
+  "cli": {
+    "analytics": false
+  }
 }

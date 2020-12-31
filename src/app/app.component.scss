@@ -1,0 +1,19 @@
+.personal-blog {
+  &__content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 20px;
+  }
+
+  &__wave {
+    transform: rotate(180deg);
+    position: fixed;
+    top: -10px;
+    z-index: 1;
+
+    svg { min-width: 1920px; }
+  }
+}

@@ -1,0 +1,11 @@
+@import "@aposin/ng-aquila/styles/theming";
+
+$personal-blog-theme: (
+  ui-01: #0f0f0f,
+  ui-background: var(--ui-01),
+);
+
+$nx-themes: nx-register-theme(
+  $personal-blog-theme,
+  personal-blog-theme
+);
