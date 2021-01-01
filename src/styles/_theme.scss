@@ -1,6 +1,6 @@
 @import "@aposin/ng-aquila/styles/theming";
 
-$personal-blog-theme: (
+$portfolio-theme: (
   ui-01: #0f0f0f,
   ui-background: var(--ui-01),
   text-01: #E3DAC9,
@@ -10,6 +10,6 @@ $personal-blog-theme: (
 );
 
 $nx-themes: nx-register-theme(
-  $personal-blog-theme,
-  personal-blog-theme,
+  $portfolio-theme,
+  portfolio-theme,
 )
