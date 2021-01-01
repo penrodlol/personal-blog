@@ -2,7 +2,7 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { NxMenuComponent } from '@aposin/ng-aquila/menu';
 
 @Component({
-  selector: 'pb-header',
+  selector: 'portfolio-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

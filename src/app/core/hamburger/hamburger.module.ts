@@ -7,7 +7,7 @@ import {
   Renderer2
 } from '@angular/core';
 
-@Directive({ selector: '[pbHamburger]' })
+@Directive({ selector: '[portfolioHamburger]' })
 export class HamburgerDirective {
   menuToggled = true;
 
@@ -26,10 +26,10 @@ export class HamburgerDirective {
 }
 
 @Component({
-  selector: 'pb-hamburger',
+  selector: 'portfolio-hamburger',
   template: `
     <div
-      pbHamburger
+      portfolioHamburger
       class="hamburger">
       <div class="hamburger__layers"></div>
     </div>

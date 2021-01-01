@@ -20,13 +20,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "pb",
+      "portfolio",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "pb",
+      "portfolio",
       "kebab-case"
     ],
     "eofline": true,
