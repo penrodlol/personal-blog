@@ -1,19 +1,47 @@
+perfect-scrollbar {
+  height: 100vh;
+  width: 100vw;
+}
+
 .portfolio {
-  &__content {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+  display: grid;
+  grid-template-columns: 1fr calc(min(60ch, calc(100% - 64px))) 1fr;
+  grid-column-gap: 32px;
+  font-size: var(--font-xl);
+  margin-top: -10px;
+
+  * {
+    grid-column: 2;
     z-index: 2;
-    padding: 20px;
   }
 
   &__wave {
     transform: rotate(180deg);
-    position: fixed;
-    top: -10px;
-    z-index: 1;
 
     svg { min-width: 1920px; }
+    
+    &--locked { display: none; }
   }
+
+  &__header {
+    position: fixed;
+    top: 0;
+    z-index: 3 !important;
+
+    &--locked {
+      background-color: #29274cff;
+    }
+  }
+
+  &__core {
+    margin-top: -100px ;
+    height: 100vh; // TEMP!!!
+
+    &--locked { margin-top: 300px; }
+  }
+}
+
+.full-bleed {
+  width: 100% !important;
+  grid-column: 1 / 4 !important;
 }

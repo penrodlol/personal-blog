@@ -11,7 +11,7 @@ export class HeaderComponent {
 
   menuToggled = false;
 
-  stub = ['Recent', 'All', 'Snippets'];
+  links = ['Projects', 'Blog'];
 
   constructor(
     private renderer: Renderer2,

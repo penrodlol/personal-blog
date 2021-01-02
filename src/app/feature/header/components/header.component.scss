@@ -4,6 +4,7 @@
   background-color: transparent !important;
   border-bottom: none !important;
   padding: 0 !important;
+  height: 85px !important;
   letter-spacing: 5px;
   font-weight: 700;
   color: var(--text-01);
@@ -36,7 +37,7 @@
       transform: translateX(-250px);
       animation: slideIn 500ms forwards;
 
-      @for $i from 1 through 3 {
+      @for $i from 1 through 2 {
         &:nth-child(#{$i}) { animation-delay: 50ms * $i; }
       }
     }
@@ -46,7 +47,7 @@
         transform: translateX(-250px);
         animation: slideOut 300ms forwards;
 
-        @for $i from 1 through 3 {
+        @for $i from 1 through 2 {
           &:nth-child(#{$i}) { animation-delay: 30ms / $i; }
         }
       }

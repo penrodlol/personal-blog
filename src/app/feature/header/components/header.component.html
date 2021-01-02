@@ -4,7 +4,7 @@
   fxFlex="80"
   fxFlex.lt-lg="100">
   <nx-header-brand
-    class="nx-margin-right-l"
+    class="nx-margin-right-l nx-margin-top-xs"
     [fxHide]="menuToggled">
     <nx-link>
       <a routerLink="./">
@@ -20,7 +20,7 @@
     </nx-link>
   </nx-header-brand>
   <nx-header-navigation fxHide.lt-md>
-    <ng-container *ngFor="let entity of stub">
+    <ng-container *ngFor="let entity of links">
       <nx-header-navigation-item>
         <a
           nxHeaderLink
@@ -34,7 +34,7 @@
     <span fxFlex></span>
   </ng-container>
   <nx-header-actions
-    class="nx-margin-right-m nx-margin-bottom-s"
+    class="nx-margin-right-m nx-margin-bottom-0"
     fxHide.gt-sm
     [style.z-index]=2>
     <portfolio-hamburger (click)="onMenuToggle(menu)"></portfolio-hamburger>
@@ -47,7 +47,7 @@
     class="header__menu"
     fxLayout="column"
     fxLayoutGap="40px">
-    <ng-container *ngFor="let entity of stub">
+    <ng-container *ngFor="let entity of links">
       <a>{{entity}}</a>
     </ng-container>
   </div>
