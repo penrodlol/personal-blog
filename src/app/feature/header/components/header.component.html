@@ -1,8 +1,11 @@
 <header
-  class="header"
   nx-header
   fxFlex="80"
-  fxFlex.lt-lg="100">
+  fxFlex.lt-lg="100"
+  [ngClass]="{
+    'header': true,
+    'header__sticky': scrollThresholdService.scrollThreshold$ | async
+  }">
   <nx-header-brand
     class="nx-margin-right-l nx-margin-top-xs"
     [fxHide]="menuToggled">
@@ -20,12 +23,12 @@
     </nx-link>
   </nx-header-brand>
   <nx-header-navigation fxHide.lt-md>
-    <ng-container *ngFor="let entity of links">
+    <ng-container *ngFor="let route of ROUTES">
       <nx-header-navigation-item>
         <a
           nxHeaderLink
           routerLink="./">
-          {{entity}}
+          {{route}}
         </a>
       </nx-header-navigation-item>
     </ng-container>
@@ -37,18 +40,23 @@
     class="nx-margin-right-m nx-margin-bottom-0"
     fxHide.gt-sm
     [style.z-index]=2>
-    <portfolio-hamburger (click)="onMenuToggle(menu)"></portfolio-hamburger>
+    <portfolio-hamburger
+      (click)="
+        menu.toggle();
+        menuToggled = !menuToggled;
+      ">
+    </portfolio-hamburger>
   </nx-header-actions>
 </header>
 
 <nx-menu #menu>
-  <div
-    #menu_wrapper
-    class="header__menu"
-    fxLayout="column"
-    fxLayoutGap="40px">
-    <ng-container *ngFor="let entity of links">
-      <a>{{entity}}</a>
-    </ng-container>
-  </div>
-</nx-menu>
+  <ng-container *ngIf="menuToggled">
+    <div
+      fxLayout="column"
+      fxLayoutGap="40px"
+      [@staggerInOut]="ROUTES.length">
+      <a *ngFor="let route of ROUTES">
+        {{route}}
+      </a>
+    </div>
+  </ng-container>

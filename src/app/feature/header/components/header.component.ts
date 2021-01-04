@@ -1,34 +1,40 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
-import { NxMenuComponent } from '@aposin/ng-aquila/menu';
+import {
+  trigger,
+  transition,
+  query,
+  style,
+  stagger,
+  animate,
+} from '@angular/animations';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { ScrollThresholdService } from 'src/app/core/scroll-wrapper/scroll-wrapper.module';
 
 @Component({
   selector: 'portfolio-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('staggerInOut', [
+      transition('* => *', [
+        query(':enter', [
+          style({ transform: 'translateX(-250px)', }),
+          stagger(75, [ animate('0.25s', style({ transform: 'translateX(0)' })) ])
+        ], { optional: true }),
+        query(':leave', [
+          style({ transform: 'translateX(0)', }),
+          stagger(50, [ animate('0.15s', style({ transform: 'translateX(-250px)' })) ])
+        ], { optional: true }),
+      ])
+    ])
+  ],
 })
 export class HeaderComponent {
-  @ViewChild('menu_wrapper') menuWrapper: ElementRef;
+  readonly ROUTES: ReadonlyArray<string> = ['Projects', 'Blog'];
 
   menuToggled = false;
 
-  links = ['Projects', 'Blog'];
-
   constructor(
-    private renderer: Renderer2,
+    public scrollThresholdService: ScrollThresholdService,
   ) { }
-
-  onMenuToggle(menu: NxMenuComponent): void {
-    if (this.menuToggled) {
-      this.renderer.addClass(this.menuWrapper.nativeElement, 'header__menu--opened');
-      setTimeout(() => this.handleMenuToggle(menu), 300);
-    } else {
-      this.renderer.removeClass(this.menuWrapper.nativeElement, 'header__menu--opened');
-      this.handleMenuToggle(menu);
-    }
-  }
-
-  private handleMenuToggle(menu: NxMenuComponent): void {
-    this.menuToggled = !this.menuToggled;
-    menu.toggle();
-  }
 }

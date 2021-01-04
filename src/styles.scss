@@ -4,13 +4,12 @@
 @import "@aposin/ng-aquila/css/utilities.css";
 @import 'theme';
 @import 'theme-overrides';
-@import 'ps-overrides';
+@import 'scrollbar';
 @import 'font-sizes';
 
 @include nx-build-theme(portfolio-theme);
 
 html, body {
   margin: 0;
-  overflow-x: hidden;
   font-family: 'Fira Code', monospace;
 }

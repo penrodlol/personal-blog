@@ -2,4 +2,18 @@
 
 .nx {
   &-menu__wrapper { top: 0 !important; }
+
+  &-header {
+    color: var(--text-01) !important;
+    height: 85px !important;
+    padding: 0 !important;
+  }
+
+  &-menu__wrapper {
+    color: var(--text-01) !important;
+    font-size: var(--header-font-size) !important;
+    letter-spacing: var(--header-letter-spacing) !important;
+    font-weight: var(--header-font-weight) !important;
+    padding: 100px 50px !important;
+  }
 }
