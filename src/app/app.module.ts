@@ -23,6 +23,7 @@ import { AppStartupService } from './app-startup.service';
     AppRoutingModule,
     WaveModule,
     HeaderModule,
+    FooterModule,
     ScrollWrapperModule,
     NgScrollbarModule,
   ],

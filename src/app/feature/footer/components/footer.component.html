@@ -1,0 +1,31 @@
+<footer
+  class="footer"
+  nx-footer>
+  <nx-footer-copyright>
+    &copy; Christian Penrod
+  </nx-footer-copyright>
+  <nx-footer-navigation class="footer__navigation">
+    <nx-footer-link
+      class="footer__navigation--link"
+      *ngFor="let route of ROUTES">
+      <a routerLink="./">{{route}}</a>
+    </nx-footer-link>
+    <hr
+      class="footer__navigation--divider"
+      fxFill
+      [fxHide]="hideDivider$ | async">
+    <nx-footer-link
+      class="footer__navigation--socials"
+      fxFill
+      fxLayout="row"
+      fxLayoutGap="25px"
+      fxLayoutAlign="end">
+      <a 
+        *ngFor="let social of SOCIALS"
+        [href]="social.url"
+        target="blank">
+        <nx-icon [name]="social.icon"></nx-icon>
+      </a>
+    </nx-footer-link>
+  </nx-footer-navigation>
+</footer>
