@@ -6,14 +6,14 @@ import {
   stagger,
   animate,
 } from '@angular/animations';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
+import { PORTFOLIO_ROUTES } from 'src/app/app-routing.module';
 import { ScrollThresholdService } from 'src/app/core/scroll-wrapper/scroll-wrapper.module';
 
 @Component({
   selector: 'portfolio-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('staggerInOut', [
       transition('* => *', [
@@ -30,7 +30,7 @@ import { ScrollThresholdService } from 'src/app/core/scroll-wrapper/scroll-wrapp
   ],
 })
 export class HeaderComponent {
-  readonly ROUTES: ReadonlyArray<string> = ['Projects', 'Blog'];
+  readonly ROUTES = PORTFOLIO_ROUTES;
 
   menuToggled = false;
 
