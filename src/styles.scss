@@ -1,15 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
-@import "@angular/cdk/overlay-prebuilt.css";
-@import "@angular/cdk/a11y-prebuilt.css";
-@import "@aposin/ng-aquila/css/utilities.css";
-@import 'theme';
-@import 'theme-overrides';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 @import 'scrollbar';
-@import 'font-sizes';
-
-@include nx-build-theme(portfolio-theme);
 
 html, body {
   margin: 0;
   font-family: 'Fira Code', monospace;
+  background-color: #0f0f0f;
 }
+
+.full-bleed {
+  width: 100% !important;
+  grid-column: 1 / 4 !important;
+}
+
+:root {
+  --alpha: #29274cff;
+  --beta: #e3dac9;
+}
+
+[hidden] { display: none !important;}

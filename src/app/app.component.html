@@ -1,19 +1,25 @@
 <portfolio-scroll-wrapper>
-  <main class="portfolio">
-    <section class="portfolio__wave full-bleed">
+  <main
+    class="grid gap-x-8 text-beta tracking-widest"
+    style="grid-template-columns: 1fr calc(min(60ch, calc(100% - 64px))) 1fr;">
+
+    <section class="transform rotate-180 full-bleed">
       <portfolio-wave></portfolio-wave>
     </section>
 
-    <section class="portfolio__header full-bleed">
+    <section class="fixed z-50 top-0 full-bleed">
       <portfolio-header></portfolio-header>
     </section>
   
-    <section class="portfolio__core">
+    <section
+      class="-mt-16 col-start-2 col-end-3"
+      style="height: 200vh;">
       <router-outlet></router-outlet>
     </section>
 
-    <section class="full-bleed">
+    <section class="full-bleed bottom-0">
       <portfolio-footer></portfolio-footer>
     </section>
+
   </main>
 </portfolio-scroll-wrapper>

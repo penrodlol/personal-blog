@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { NxFooterModule } from '@aposin/ng-aquila/footer';
-import { NxIconModule } from '@aposin/ng-aquila/icon';
 
 import { FooterComponent } from './components/footer.component';
 
@@ -13,8 +11,6 @@ import { FooterComponent } from './components/footer.component';
   imports: [
     CommonModule,
     FlexLayoutModule,
-    NxFooterModule,
-    NxIconModule,
   ],
   exports: [
     FooterComponent,

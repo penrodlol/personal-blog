@@ -1,62 +1,33 @@
-<header
-  nx-header
-  fxFlex="80"
-  fxFlex.lt-lg="100"
-  [ngClass]="{
-    'header': true,
-    'header__sticky': scrollThresholdService.scrollThreshold$ | async
-  }">
-  <nx-header-brand
-    class="nx-margin-right-l nx-margin-top-xs"
-    [fxHide]="menuToggled">
-    <nx-link>
-      <a routerLink="./">
-        <figure nxFigure>
-          <img
-            src="assets/image/logo.svg"
-            alt="Brand Logo"
-            role="none"
-            height="100px"
-            width="100px">
-        </figure>
-      </a>
-    </nx-link>
-  </nx-header-brand>
-  <nx-header-navigation fxHide.lt-md>
-    <ng-container *ngFor="let route of ROUTES">
-      <nx-header-navigation-item>
-        <a
-          nxHeaderLink
-          routerLink="./">
-          {{route}}
-        </a>
-      </nx-header-navigation-item>
-    </ng-container>
-  </nx-header-navigation>
-  <ng-container *ngIf="menuToggled">
-    <span fxFlex></span>
-  </ng-container>
-  <nx-header-actions
-    class="nx-margin-right-m nx-margin-bottom-0"
-    fxHide.gt-sm
-    [style.z-index]=2>
+<nav class="flex items-center w-full p-4 m-auto lg:w-4/5">
+  <a
+    class="cursor-pointer mr-12 h-28 w-28"
+    routerLink="./">
+    <img
+      src="assets/image/logo.svg"
+      alt="Brand Logo"
+      [hidden]="menuToggled">
+  </a>
+  <a
+    *ngFor="let route of ROUTES"
+    class="text-2xl font-bold cursor-pointer mr-10 mb-2 hidden md:inline-block"
+    routerLink="./">
+    {{route}}
+  </a>
+  <section class="ml-auto md:hidden mb-2 z-50">
     <portfolio-hamburger
-      (click)="
-        menu.toggle();
-        menuToggled = !menuToggled;
-      ">
+      (click)="menuToggled = !menuToggled;">
     </portfolio-hamburger>
-  </nx-header-actions>
-</header>
+  </section>
+</nav>
 
-<nx-menu #menu>
-  <ng-container *ngIf="menuToggled">
-    <div
-      fxLayout="column"
-      fxLayoutGap="40px"
-      [@staggerInOut]="ROUTES.length">
-      <a *ngFor="let route of ROUTES">
-        {{route}}
-      </a>
-    </div>
-  </ng-container>
+<ng-container *ngIf="menuToggled">
+  <div
+    class="flex flex-col text-2xl font-bold bg-overlay inset-0 fixed z-0 pt-24"
+    [@staggerInOut]="ROUTES.length">
+    <a
+      *ngFor="let route of ROUTES"
+      class="my-4 ml-12">
+      {{route}}
+    </a>
+  </div>
+</ng-container>
