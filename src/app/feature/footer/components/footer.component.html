@@ -1,31 +1,42 @@
-<!-- <footer
-  class="footer"
-  nx-footer>
-  <nx-footer-copyright>
-    &copy; Christian Penrod
-  </nx-footer-copyright>
-  <nx-footer-navigation class="footer__navigation">
-    <nx-footer-link
-      class="footer__navigation--link"
-      *ngFor="let route of ROUTES">
-      <a routerLink="./">{{route}}</a>
-    </nx-footer-link>
-    <hr
-      class="footer__navigation--divider"
-      fxFill
-      [fxHide]="hideDivider$ | async">
-    <nx-footer-link
-      class="footer__navigation--socials"
-      fxFill
-      fxLayout="row"
-      fxLayoutGap="25px"
-      fxLayoutAlign="end">
-      <a 
-        *ngFor="let social of SOCIALS"
-        [href]="social.url"
-        target="blank">
-        <nx-icon [name]="social.icon"></nx-icon>
-      </a>
-    </nx-footer-link>
-  </nx-footer-navigation>
-</footer> -->
+<footer class="w-full bg-secondary">
+  <div
+    class="grid grid-cols-2 grid-rows-2 lg:grid-rows-1 gap-2 lg:w-3/5 m-auto px-6 py-4"
+    style="grid-template-rows: auto auto;">
+    <div class="col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 text-center lg:text-left">
+      <img
+        class="h-28 w-28 hidden lg:block"
+        src="assets/image/logo.svg"
+        alt="Brand Logo">
+      <span class="pl-4">
+        <hr class="py-4 w-4/5 m-auto block lg:hidden">
+        &copy; Christian Penrod
+      </span>
+    </div>
+    <div class="pt-4 col-span-2 lg:col-span-1">
+      <div class="grid grid-cols-2 grid-rows-1 justify-items-center ">
+        <div class="col-start-1 col-end-2" >
+          <span class="text-xl">Links</span>
+          <hr class="my-4">
+          <a
+          *ngFor="let route of ROUTES"
+          class="block mb-2 cursor-pointer"
+          routerLink="./">
+          {{route}}
+          </a>
+        </div>
+        <div class="col-start-2 col-end-auto" >
+          <span class="text-xl">Socials</span>
+          <hr class="my-4">
+          <a
+            *ngFor="let social of SOCIALS"
+            class="block mb-2 cursor-pointer"
+            target="blank"
+            [href]="social.url">
+            <svg-icon [key]="social.icon"></svg-icon>
+            {{social.icon | titlecase }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

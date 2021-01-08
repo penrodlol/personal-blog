@@ -1,19 +1,19 @@
-.footer {
-  &__navigation {
-    flex-grow: 1;
+// .footer {
+//   &__navigation {
+//     flex-grow: 1;
 
-    &--link > *,
-    &--socials > * {
-      cursor: pointer;
-    }
+//     &--link > *,
+//     &--socials > * {
+//       cursor: pointer;
+//     }
 
-    &--socials {
-      font-size: var(--font-xl);
-      min-width: unset !important;
-    }
+//     &--socials {
+//       font-size: var(--font-xl);
+//       min-width: unset !important;
+//     }
 
-    &--divider {
-      margin-bottom: 25px;
-    }
-  }
-}
+//     &--divider {
+//       margin-bottom: 25px;
+//     }
+//   }
+// }
