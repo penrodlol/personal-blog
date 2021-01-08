@@ -1,4 +1,4 @@
-<nav class="flex items-center w-full p-4 m-auto lg:w-4/5">
+<nav class="flex items-center w-full p-4 pr-8 m-auto lg:w-4/5">
   <a
     class="cursor-pointer mr-12 h-28 w-28"
     routerLink="./">
@@ -13,9 +13,9 @@
     routerLink="./">
     {{route}}
   </a>
-  <section class="ml-auto md:hidden mb-2 z-50">
+  <section class="ml-auto md:hidden z-50">
     <portfolio-hamburger
-      (click)="menuToggled = !menuToggled;">
+      (click)="onMenuToggle()">
     </portfolio-hamburger>
   </section>
 </nav>

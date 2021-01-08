@@ -1,19 +1,22 @@
 import {
-    AfterViewInit,
-    Component,
-    Injectable,
-    NgModule,
-    ViewChild
+  Component,
+  Injectable,
+  NgModule,
+  Renderer2,
+  ViewChild,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { NgScrollbar, NgScrollbarModule } from 'ngx-scrollbar';
 import { BehaviorSubject } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+
+export interface IScrollWrapperState {
+  disabled: boolean;
+}
 
 @Component({
   selector: 'portfolio-scroll-wrapper',
   template: `
-    <ng-scrollbar>
+    <ng-scrollbar
+      [disabled]="state.disabled">
       <ng-content></ng-content>
     </ng-scrollbar>
   `,
@@ -24,40 +27,48 @@ import { filter, map } from 'rxjs/operators';
     },
   `],
 })
-export class PortfolioScrollWrapperComponent implements AfterViewInit {
+export class ScrollWrapperComponent {
   @ViewChild(NgScrollbar, { static: true }) scrollbar: NgScrollbar;
 
-  constructor(
-    private scrollThresholdService: ScrollThresholdService,
-    private route: ActivatedRoute,
-  ) { }
+  state: IScrollWrapperState;
 
-  ngAfterViewInit(): void {
-    this.route.url
-      .pipe(filter(routes => routes[0]?.path === ''))
-      .subscribe(() => {
-        this.scrollbar.verticalScrolled
-        .pipe(map(({ target }) => target.scrollTop))
-        .subscribe(this.scrollThresholdService.update);
+  constructor(
+    private scrollWrapperService: ScrollWrapperService,
+    private render: Renderer2,
+  ) {
+    this.scrollWrapperService
+      .scrollWrapper$
+      .subscribe(state => {
+        this.state = state;
+        if (this.scrollbar) {
+          this.render.setStyle(
+            this.scrollbar.viewport.nativeElement,
+            'overflow-y',
+            this.state.disabled ? 'hidden' : 'auto',
+          );
+        }
       });
   }
 }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ScrollThresholdService {
-  private readonly Y_THRESHOLD = 159;
+@Injectable({ providedIn: 'root' })
+export class ScrollWrapperService {
+  private scrollWrapperState = new BehaviorSubject<IScrollWrapperState>({
+    disabled: false,
+  });
+  readonly scrollWrapper$ = this.scrollWrapperState.asObservable();
 
-  private scrollThresholdStore = new BehaviorSubject<boolean>(false);
-  readonly scrollThreshold$ = this.scrollThresholdStore.asObservable();
-
-  update = (yAxis: number) => this.scrollThresholdStore.next(yAxis >= this.Y_THRESHOLD);
+  update(state: Partial<IScrollWrapperState>): void {
+    this.scrollWrapperState.next({
+      ...this.scrollWrapperState.value,
+      ...state,
+    });
+  }
 }
 
 @NgModule({
-  declarations: [PortfolioScrollWrapperComponent],
+  declarations: [ScrollWrapperComponent],
   imports: [NgScrollbarModule],
-  exports: [PortfolioScrollWrapperComponent],
+  exports: [ScrollWrapperComponent],
 })
 export class ScrollWrapperModule { }

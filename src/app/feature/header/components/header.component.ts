@@ -8,7 +8,7 @@ import {
 } from '@angular/animations';
 import { Component } from '@angular/core';
 import { PORTFOLIO_ROUTES } from 'src/app/app-routing.module';
-import { ScrollThresholdService } from 'src/app/core/scroll-wrapper/scroll-wrapper.module';
+import { ScrollWrapperService } from 'src/app/core/scroll-wrapper/scroll-wrapper.module';
 
 @Component({
   selector: 'portfolio-header',
@@ -35,6 +35,11 @@ export class HeaderComponent {
   menuToggled = false;
 
   constructor(
-    public scrollThresholdService: ScrollThresholdService,
+    private scrollWrapperService: ScrollWrapperService,
   ) { }
+
+  onMenuToggle(): void {
+    this.menuToggled = !this.menuToggled;
+    this.scrollWrapperService.update({ disabled: this.menuToggled });
+  }
 }
