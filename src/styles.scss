@@ -3,11 +3,13 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'scrollbar';
+@import 'colors';
 
 html, body {
   margin: 0;
-  font-family: 'Fira Code', monospace;
-  background-color: #0f0f0f;
+  // font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
+  background-color: var(--primary);
 }
 
 .full-bleed {
@@ -15,9 +17,4 @@ html, body {
   grid-column: 1 / 4 !important;
 }
 
-:root {
-  --alpha: #29274cff;
-  --beta: #e3dac9;
-}
-
-[hidden] { display: none !important;}
+[hidden] { display: none !important; }

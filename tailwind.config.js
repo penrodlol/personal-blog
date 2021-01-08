@@ -8,21 +8,27 @@ module.exports = (isProd) => ({
     },
     darkMode: false,
     theme: {
+      fontFamily: {
+        'nunito': ['"Fira Code"', 'monospace'],
+      },
       extend: {
         colors: {
           transparent: 'transparent',
           currentColor: 'currentColor',
-          alpha: {
-            DEFAULT: 'var(--alpha)',
+          primary: {
+            DEFAULT: 'var(--primary)',
           },
-          beta: {
-            DEFAULT: 'var(--beta)',
-          }
+          secondary: {
+            DEFAULT: 'var(--secondary)',
+          },
+          accent: {
+            DEFAULT: 'var(--accent)',
+          },
         },
         backgroundColor: theme => ({
           ...theme('colors'),
           overlay: '#00000091',
-         })
+         }),
       },
     },
     variants: {

@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'portfolio-wave',
   template: `
     <svg
-      class="fill-current text-alpha"
+      class="fill-current text-secondary"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1440 320"
       style="min-width: 1920px">
