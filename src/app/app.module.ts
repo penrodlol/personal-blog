@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
@@ -10,7 +10,6 @@ import { HeaderModule } from './feature/header/header.module';
 import { ScrollWrapperModule } from './core/scroll-wrapper/scroll-wrapper.module';
 import { WaveModule } from './core/wave/wave.module';
 import { FooterModule } from './feature/footer/footer.module';
-import { AppStartupService } from './app-startup.service';
 
 @NgModule({
   declarations: [
@@ -27,15 +26,7 @@ import { AppStartupService } from './app-startup.service';
     ScrollWrapperModule,
     NgScrollbarModule,
   ],
-  providers: [
-    AppStartupService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (startup: AppStartupService) => () => startup.init(),
-      deps: [AppStartupService],
-      multi: true,
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

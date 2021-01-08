@@ -8,7 +8,8 @@
     "build:prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "generate-icons": "svg-to-ts"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "@angular/platform-browser": "~11.0.5",
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
+    "@ngneat/svg-icon": "^2.2.0",
     "@ngneat/tailwind": "^5.0.0",
     "ngx-scrollbar": "^7.5.3",
     "rxjs": "~6.6.3",
@@ -51,6 +53,26 @@
     "tailwindcss": "2.0.2",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.5"
+    "typescript": "~4.0.5",
+    "svg-to-ts": "^5.0.0"
+  },
+  "svg-to-ts": {
+    "generateType": "false",
+    "delimiter": "KEBAB",
+    "conversionType": "files",
+    "iconsFolderName": "svg",
+    "prefix": "portfolio",
+    "srcFiles": [
+      "./src/assets/svg/*.svg"
+    ],
+    "outputDirectory": "./src/app",
+    "svgoConfig": {
+      "plugins": [
+        {
+          "removeDimensions": true,
+          "cleanupAttrs": true
+        }
+      ]
+    }
   }
 }
