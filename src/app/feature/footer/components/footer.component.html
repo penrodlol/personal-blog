@@ -1,21 +1,21 @@
 <footer class="w-full bg-secondary">
   <div
-    class="grid grid-cols-2 grid-rows-2 lg:grid-rows-1 gap-2 lg:w-3/5 m-auto px-6 py-4"
+    class="grid grid-cols-2 grid-rows-2 md:grid-rows-1 gap-2 lg:w-4/5 xl:w-3/5 m-auto px-6 py-4"
     style="grid-template-rows: auto auto;">
-    <div class="col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 text-center lg:text-left">
+    <div class="col-span-2 md:col-span-1 row-start-2 md:row-start-1 text-center md:text-left">
       <img
-        class="h-28 w-28 hidden lg:block"
+        class="h-28 w-28 hidden md:block mb-10"
         src="assets/image/logo.svg"
         alt="Brand Logo">
-      <span class="pl-4">
-        <hr class="py-4 w-4/5 m-auto block lg:hidden">
+      <span class="pl-4 font-bold">
+        <hr class="py-4 w-4/5 m-auto block md:hidden">
         &copy; Christian Penrod
       </span>
     </div>
-    <div class="pt-4 col-span-2 lg:col-span-1">
-      <div class="grid grid-cols-2 grid-rows-1 justify-items-center ">
-        <div class="col-start-1 col-end-2" >
-          <span class="text-xl">Links</span>
+    <div class="pt-4 col-span-2 md:col-span-1">
+      <div class="grid grid-cols-2 grid-rows-1 justify-items-center">
+        <div class="col-start-1 col-end-2">
+          <span class="text-xl font-bold">Links</span>
           <hr class="my-4">
           <a
           *ngFor="let route of ROUTES"
@@ -25,7 +25,7 @@
           </a>
         </div>
         <div class="col-start-2 col-end-auto" >
-          <span class="text-xl">Socials</span>
+          <span class="text-xl font-bold">Socials</span>
           <hr class="my-4">
           <a
             *ngFor="let social of SOCIALS"
