@@ -32,8 +32,10 @@
             class="block mb-2 cursor-pointer"
             target="blank"
             [href]="social.url">
-            <svg-icon [key]="social.icon"></svg-icon>
-            {{social.icon | titlecase }}
+            <div class="flex justify-items-center items-center">
+              <svg-icon [key]="social.icon"></svg-icon>
+              <span class="ml-2">{{social.name}}</span>
+            </div>
           </a>
         </div>
       </div>
