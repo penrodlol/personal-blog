@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import { NxViewportService, NxBreakpoints } from '@aposin/ng-aquila/utils';
 import { PORTFOLIO_ROUTES } from 'src/app/app-routing.module';
 
 @Component({
@@ -14,10 +13,4 @@ export class FooterComponent {
     { icon: 'github', url: 'https://github.com/penrodlol' },
     { icon: 'envelope', url: 'mailto:penrod.christian7984@gmail.com' },
   ];
-
-  // hideDivider$ = this.viewport.min(NxBreakpoints.BREAKPOINT_MEDIUM);
-
-  constructor(
-    // private viewport: NxViewportService,
-  ) { }
 }
