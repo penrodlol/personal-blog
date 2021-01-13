@@ -8,7 +8,13 @@ export const PORTFOLIO_ROUTES: ReadonlyArray<string> = [
 
 export type PortfolioRoute = typeof PORTFOLIO_ROUTES[number];
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  {
+    path: 'home',
+    loadChildren: () => import('@home/home.module').then(m => m.HomeModule),
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],

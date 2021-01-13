@@ -8,8 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderModule } from './feature/header/header.module';
 import { ScrollWrapperModule } from './core/scroll-wrapper/scroll-wrapper.module';
-import { WaveModule } from './core/wave/wave.module';
 import { FooterModule } from './feature/footer/footer.module';
+import { RouterOutletWrapperModule } from './core/router-outlet-wrapper/router-outlet-wrapper.directive';
 
 @NgModule({
   declarations: [
@@ -20,10 +20,10 @@ import { FooterModule } from './feature/footer/footer.module';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    WaveModule,
     HeaderModule,
     FooterModule,
     ScrollWrapperModule,
+    RouterOutletWrapperModule,
     NgScrollbarModule,
   ],
   providers: [],

@@ -7,14 +7,14 @@
 
 html, body {
   margin: 0;
-  // font-family: 'Fira Code', monospace;
   font-family: "Fira Code", monospace;
   background-color: var(--primary);
 }
 
-.full-bleed {
-  width: 100% !important;
-  grid-column: 1 / 4 !important;
+body {
+  background: linear-gradient(
+    65deg,
+    #b1a8ab14,
+    var(--primary) 50% 100%
+  );
 }
-
-[hidden] { display: none !important; }

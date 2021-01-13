@@ -40,6 +40,6 @@ export class HeaderComponent {
 
   onMenuToggle(): void {
     this.menuToggled = !this.menuToggled;
-    this.scrollWrapperService.update({ disabled: this.menuToggled });
+    this.scrollWrapperService.update({ menuToggled: this.menuToggled });
   }
 }

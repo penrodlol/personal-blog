@@ -1,28 +1,48 @@
-<nav class="flex items-center w-full p-4 pr-8 m-auto lg:w-4/5">
-  <a
-    class="cursor-pointer mr-12 h-28 w-28"
-    routerLink="./">
-    <img
-      src="assets/image/logo.svg"
-      alt="Brand Logo"
-      [hidden]="menuToggled">
-  </a>
-  <a
-    *ngFor="let route of ROUTES"
-    class="text-2xl font-bold cursor-pointer mr-10 mb-2 hidden md:inline-block"
-    routerLink="./">
-    {{route}}
-  </a>
-  <section class="ml-auto md:hidden z-50">
-    <portfolio-hamburger
-      (click)="onMenuToggle()">
-    </portfolio-hamburger>
-  </section>
-</nav>
+<section class="fixed z-50 top-0 w-full bg-secondary">
+  <nav
+    class="flex items-center h-28 w-full lg:w-4/5 p-4 m-auto"
+    style="max-width: 1500px">
+    <ng-container *ngIf="!menuToggled">
+      <a
+        class="cursor-pointer mr-12 h-28 w-28"
+        routerLink="./">
+        <img
+          src="assets/image/logo.svg"
+          alt="Brand Logo">
+      </a>
+    </ng-container>
+    <div class="ml-auto">
+      <a
+        *ngFor="let route of ROUTES"
+        class="text-2xl font-bold cursor-pointer mr-10 mb-2 hidden md:inline-block"
+        routerLink="./">
+        {{route}}
+      </a>
+      <section class="pr-8 md:hidden">
+        <portfolio-hamburger
+          (click)="onMenuToggle()">
+        </portfolio-hamburger>
+      </section>
+    </div>
+  </nav>
+  <div class="transform rotate-180">
+    <svg
+      class="fill-current text-secondary absolute bottom-0 w-full"
+      style="min-width: 1240px"
+      preserveAspectRatio="none"
+      width="1440"
+      height="74"
+      viewBox="0 0 1440 74">
+      <path
+        d="M456.464 0.0433865C277.158 -1.70575 0 50.0141 0 50.0141V74H1440V50.0141C1440 50.0141 1320.4 31.1925 1243.09 27.0276C1099.33 19.2816 1019.08 53.1981 875.138 50.0141C710.527 46.3727 621.108 1.64949 456.464 0.0433865Z">
+      </path>
+    </svg>
+  </div>
+</section>
 
 <ng-container *ngIf="menuToggled">
   <div
-    class="flex flex-col text-2xl font-bold bg-overlay inset-0 fixed z-0 pt-24"
+    class="flex flex-col text-4xl font-bold bg-overlay inset-0 fixed z-40 pt-52"
     [@staggerInOut]="ROUTES.length">
     <a
       *ngFor="let route of ROUTES"

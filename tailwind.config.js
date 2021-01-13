@@ -21,13 +21,16 @@ module.exports = (isProd) => ({
           secondary: {
             DEFAULT: 'var(--secondary)',
           },
+          tertiary: {
+            DEFAULT: 'var(--tertiary)',
+          },
           accent: {
             DEFAULT: 'var(--accent)',
           },
         },
         backgroundColor: theme => ({
           ...theme('colors'),
-          overlay: '#00000091',
+          overlay: '#000000de',
          }),
       },
     },

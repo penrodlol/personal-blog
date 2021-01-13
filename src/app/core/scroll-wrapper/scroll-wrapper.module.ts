@@ -7,16 +7,17 @@ import {
 } from '@angular/core';
 import { NgScrollbar, NgScrollbarModule } from 'ngx-scrollbar';
 import { BehaviorSubject } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 
 export interface IScrollWrapperState {
-  disabled: boolean;
+  menuToggled: boolean;
 }
 
 @Component({
   selector: 'portfolio-scroll-wrapper',
   template: `
     <ng-scrollbar
-      [disabled]="state.disabled">
+      [disabled]="state.menuToggled">
       <ng-content></ng-content>
     </ng-scrollbar>
   `,
@@ -44,7 +45,7 @@ export class ScrollWrapperComponent {
           this.render.setStyle(
             this.scrollbar.viewport.nativeElement,
             'overflow-y',
-            this.state.disabled ? 'hidden' : 'auto',
+            this.state.menuToggled ? 'hidden' : 'auto',
           );
         }
       });
@@ -54,9 +55,13 @@ export class ScrollWrapperComponent {
 @Injectable({ providedIn: 'root' })
 export class ScrollWrapperService {
   private scrollWrapperState = new BehaviorSubject<IScrollWrapperState>({
-    disabled: false,
+    menuToggled: false,
   });
   readonly scrollWrapper$ = this.scrollWrapperState.asObservable();
+
+  select(key: keyof IScrollWrapperState) {
+    return this.scrollWrapperState.pipe(pluck(key));
+  }
 
   update(state: Partial<IScrollWrapperState>): void {
     this.scrollWrapperState.next({
