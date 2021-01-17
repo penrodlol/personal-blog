@@ -17,8 +17,7 @@ export type IButtonSize = 's' | 'm' | 'l';
         text-black
         font-bold
         shadow-secondary
-        hover:bg-accent-light
-        hover:shadow-secondary-lg"
+        hover:bg-accent-light"
       [class]="applySize()"
       (click)=onClick()>
       {{text}}
