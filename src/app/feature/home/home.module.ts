@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ButtonModule } from 'src/app/shared/button/button.module';
+import { ButtonModule } from 'src/app/shared/components/button/button.module';
 
 export const homeRoutes: Routes = [
   { path: '', component: HomeComponent },

@@ -36,7 +36,6 @@ module.exports = (isProd) => ({
          boxShadow: {
            secondary: '0 4px 6px -1px var(--secondary), 0 2px 4px -1px var(--secondary)',
            'secondary-lg': '0 10px 15px -3px var(--secondary), 0 4px 6px -2px var(--secondary);',
-           'secondary-xl': '0 20px 25px -5px var(--secondary), 0 10px 10px -5px var(--secondary);',
          }
       },
     },
