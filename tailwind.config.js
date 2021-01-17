@@ -25,6 +25,7 @@ module.exports = (isProd) => ({
             DEFAULT: 'var(--tertiary)',
           },
           accent: {
+            transparent: 'var(--accent-transparent)',
             light: 'var(--accent-light)',
             DEFAULT: 'var(--accent)',
           },

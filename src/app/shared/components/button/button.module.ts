@@ -1,8 +1,16 @@
-import { Component, ElementRef, Input, NgModule, ViewChild } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    Input,
+    NgModule,
+    ViewChild,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { myIcons } from 'src/app/svg/my-icons.model';
 import { TimelineMax } from 'gsap';
 
 export type IButtonSize = 's' | 'm' | 'l';
+export type IButtonType = 'primary' | 'secondary';
 
 @Component({
   selector: 'portfolio-button',
@@ -10,15 +18,14 @@ export type IButtonSize = 's' | 'm' | 'l';
     <button
       #button
       class="
-        relative
         py-3
-        bg-accent
         rounded-3xl
-        text-black
         font-bold
-        shadow-secondary
-        hover:bg-accent-light"
-      [class]="applySize()"
+        shadow-secondary"
+      [ngClass]="[
+        applySize(),
+        applyType()
+      ]"
       (click)=onClick()>
       {{text}}
     </button>
@@ -32,14 +39,22 @@ export class ButtonComponent {
 
   @Input() text: string;
   @Input() icon: myIcons;
-  @Input() size: IButtonSize;
+  @Input() size: IButtonSize = 'm';
+  @Input() type: IButtonType = 'primary';
 
   applySize(): string {
     switch (this.size) {
       case 's': return 'px-2';
       case 'm': return 'px-5';
       case 'l': return 'px-10';
-      default: return 'px-5';
+    }
+  }
+
+  applyType(): string {
+    if (this.type === 'primary') {
+      return 'bg-accent hover:bg-accent-light text-black';
+    } else {
+      return 'border-2 border-accent text-tertiary hover:bg-accent-transparent';
     }
   }
 
@@ -52,6 +67,7 @@ export class ButtonComponent {
 
 @NgModule({
   declarations: [ButtonComponent],
+  imports: [CommonModule],
   exports: [ButtonComponent],
 })
 export class ButtonModule { }
