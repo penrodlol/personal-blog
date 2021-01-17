@@ -25,6 +25,7 @@
     "@angular/router": "~11.0.5",
     "@ngneat/svg-icon": "^2.2.0",
     "@ngneat/tailwind": "^5.0.0",
+    "gsap": "^3.6.0",
     "ngx-scrollbar": "^7.5.3",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
@@ -36,6 +37,7 @@
     "@angular/cli": "~11.0.5",
     "@angular/compiler-cli": "~11.0.5",
     "@angular/language-service": "~11.0.5",
+    "@types/gsap": "^1.20.2",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -49,11 +51,11 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "postcss": "8.2.2",
     "protractor": "~7.0.0",
+    "svg-to-ts": "^5.0.0",
     "tailwindcss": "2.0.2",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.5",
-    "svg-to-ts": "^5.0.0"
+    "typescript": "~4.0.5"
   },
   "svg-to-ts": {
     "generateType": "false",

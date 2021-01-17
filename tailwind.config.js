@@ -34,10 +34,9 @@ module.exports = (isProd) => ({
           overlay: '#000000de',
          }),
          boxShadow: {
-           primary: '0 4px 6px -1px var(--primary), 0 2px 4px -1px var(--primary)',
            secondary: '0 4px 6px -1px var(--secondary), 0 2px 4px -1px var(--secondary)',
-           tertiary: '0 4px 6px -1px var(--tertiary), 0 2px 4px -1px var(--tertiary)',
-           accent: '0 4px 6px -1px var(--accent), 0 2px 4px -1px var(--accent)',
+           'secondary-lg': '0 10px 15px -3px var(--secondary), 0 4px 6px -2px var(--secondary);',
+           'secondary-xl': '0 20px 25px -5px var(--secondary), 0 10px 10px -5px var(--secondary);',
          }
       },
     },
