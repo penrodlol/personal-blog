@@ -7,9 +7,12 @@ import {
   animate,
 } from '@angular/animations';
 import { Component } from '@angular/core';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { PORTFOLIO_ROUTES } from 'src/app/app-routing.module';
 import { ScrollWrapperService } from 'src/app/core/scroll-wrapper/scroll-wrapper.module';
+import { ViewportService } from 'src/app/shared/viewport/viewport.service';
 
+@UntilDestroy()
 @Component({
   selector: 'portfolio-header',
   templateUrl: './header.component.html',
@@ -31,11 +34,12 @@ import { ScrollWrapperService } from 'src/app/core/scroll-wrapper/scroll-wrapper
 })
 export class HeaderComponent {
   readonly ROUTES = PORTFOLIO_ROUTES;
-
   menuToggled = false;
+  showHamburger$ = this.viewportService.isGreaterThan('M').pipe(untilDestroyed(this));
 
   constructor(
     private scrollWrapperService: ScrollWrapperService,
+    private viewportService: ViewportService,
   ) { }
 
   onMenuToggle(): void {

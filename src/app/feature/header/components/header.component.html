@@ -1,44 +1,52 @@
-<section class="fixed z-50 top-0 w-full bg-secondary">
-  <nav
-    class="flex items-center h-28 w-full lg:w-4/5 p-4 m-auto"
-    style="max-width: 1500px">
+<div class="fixed z-50 top-0 w-full bg-secondary font-bold">
+  <nav class="flex items-center max-w-screen-2xl w-full lg:w-4/5 p-4 h-28 m-auto">
     <ng-container *ngIf="!menuToggled">
       <a
         class="cursor-pointer mr-12 h-28 w-28"
-        routerLink="./">
+        routerLink="/">
         <img
           src="assets/image/logo.svg"
           alt="Brand Logo">
       </a>
     </ng-container>
-    <div class="ml-auto">
-      <a
-        *ngFor="let route of ROUTES"
-        class="text-2xl font-bold cursor-pointer mr-10 mb-2 hidden md:inline-block"
-        routerLink="./">
-        {{route}}
-      </a>
-      <section class="pr-8 md:hidden">
+    <span class="ml-auto"></span>
+    <ng-container *ngIf="(showHamburger$ | async); else showInlineLinks">
+      <section class="pr-8">
         <portfolio-hamburger
           (click)="onMenuToggle()">
         </portfolio-hamburger>
       </section>
-    </div>
+    </ng-container>
+    <ng-template #showInlineLinks>
+      <div portfolioHeaderLinksAnimation>
+        <a
+          #links
+          *ngFor="let route of ROUTES"
+          class="relative cursor-pointer text-2xl mr-10 mb-2 inline-block"
+          routerLinkActive
+          [routerLink]="route | lowercase">
+          {{route}}
+          <span
+            id="underline"
+            class="absolute block w-0 bg-tertiary"
+            style="height: 0.3em; bottom: -0.5em;">
+          </span>
+        </a>
+      </div>
+    </ng-template>
   </nav>
   <div class="transform rotate-180">
     <svg
-      class="fill-current text-secondary absolute bottom-0 w-full"
+      class="fill-current text-secondary absolute -bottom-1 w-full"
       style="min-width: 1240px"
       preserveAspectRatio="none"
       width="1440"
       height="74"
       viewBox="0 0 1440 74">
-      <path
-        d="M456.464 0.0433865C277.158 -1.70575 0 50.0141 0 50.0141V74H1440V50.0141C1440 50.0141 1320.4 31.1925 1243.09 27.0276C1099.33 19.2816 1019.08 53.1981 875.138 50.0141C710.527 46.3727 621.108 1.64949 456.464 0.0433865Z">
-      </path>
+      <path d="M456.464 0.0433865C277.158 -1.70575 0 50.0141 0 50.0141V74H1440V50.0141C1440 50.0141 1320.4 31.1925 1243.09 27.0276C1099.33 19.2816 1019.08 53.1981 875.138 50.0141C710.527 46.3727 621.108 1.64949 456.464 0.0433865Z"></path>
     </svg>
   </div>
-</section>
+</div>
 
 <ng-container *ngIf="menuToggled">
   <div

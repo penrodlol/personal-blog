@@ -25,6 +25,7 @@
     "@angular/router": "~11.0.5",
     "@ngneat/svg-icon": "^2.2.0",
     "@ngneat/tailwind": "^5.0.0",
+    "@ngneat/until-destroy": "^8.0.3",
     "gsap": "^3.6.0",
     "ngx-scrollbar": "^7.5.3",
     "rxjs": "~6.6.3",

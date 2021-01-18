@@ -9,9 +9,16 @@ export const PORTFOLIO_ROUTES: ReadonlyArray<string> = [
 export type PortfolioRoute = typeof PORTFOLIO_ROUTES[number];
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
-    path: 'home',
+    path: '',
+    loadChildren: () => import('@home/home.module').then(m => m.HomeModule),
+  },
+  {
+    path: 'projects',
+    loadChildren: () => import('@home/home.module').then(m => m.HomeModule),
+  },
+  {
+    path: 'blog',
     loadChildren: () => import('@home/home.module').then(m => m.HomeModule),
   }
 ];
