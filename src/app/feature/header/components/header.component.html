@@ -1,4 +1,4 @@
-<div class="fixed z-50 top-0 w-full bg-secondary font-bold">
+<div class="fixed z-50 top-0 w-full bg-secondary">
   <nav class="flex items-center max-w-screen-2xl w-full lg:w-4/5 p-4 h-28 m-auto">
     <ng-container *ngIf="!menuToggled">
       <a
@@ -50,7 +50,7 @@
 
 <ng-container *ngIf="menuToggled">
   <div
-    class="flex flex-col text-4xl font-bold bg-overlay inset-0 fixed z-40 pt-52"
+    class="flex flex-col text-4xl bg-overlay inset-0 fixed z-40 pt-52"
     [@staggerInOut]="ROUTES.length">
     <a
       *ngFor="let route of ROUTES"

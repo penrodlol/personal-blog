@@ -62,7 +62,7 @@ export class HeaderLinksAnimationDirective implements AfterViewInit, OnDestroy {
         if (underline) {
           this.timeline.to(underline, 0.8, {
             width: '100%',
-            ease: 'elastic',
+            ease: 'bounce',
           });
         }
       });

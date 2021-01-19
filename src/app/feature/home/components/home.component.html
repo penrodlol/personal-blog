@@ -2,28 +2,16 @@
   class="grid grid-rows-2 grid-cols-2 gap-x-8 justify-items-center m-auto mt-48 lg:mt-56"
   style="max-width: 1500px;">
 
-  <ng-container *ngIf="showRocket$ | async">
-    <section class="col-start-1 row-start-1 hidden lg:inline-grid">
-      <img
-        portfolioFloatingAnimation
-        src="assets/image/me_rocket.webp"
-        alt="Me on a rocket"
-        width="570"
-        height="594"
-        style="
-          max-height: 594px;
-          min-width: 570px;">
-    </section>
-  </ng-container>
-
   <section
-    class="col-span-full lg:col-start-2 row-start-1"
+    class="col-span-full lg:col-start-1 row-start-1"
     style="max-width: calc(min(60ch, calc(100% - 64px)));">
-    <h1 class="text-4xl">
+    <h1
+      class="text-4xl"
+      style="letter-spacing: 3.5px">
       Hi, I'm Christian!
     </h1>
     <p
-      class="font-bold text-xl my-10 md:my-14">
+      class="text-xl my-10 md:my-14">
       Full-Stack Web Developer from
       Pittsburgh, Pennsylvania. My goal
       on this platform is to present/educate other
@@ -36,5 +24,21 @@
       size="l">
     </portfolio-button>
   </section>
+
+  <ng-container *ngIf="showRocket$ | async">
+    <section
+      class="col-start-auto row-start-1 hidden lg:inline-grid"
+      style="transform: scaleX(-1)">
+      <img
+        portfolioFloatingAnimation
+        src="assets/image/me_rocket.webp"
+        alt="Me on a rocket"
+        width="570"
+        height="594"
+        style="
+          max-height: 594px;
+          min-width: 570px;">
+    </section>
+  </ng-container>
 
 </div>
