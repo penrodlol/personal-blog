@@ -13,14 +13,22 @@ const portfolioBreakpointsMap = new Map<string, number>([
 
 @Injectable({ providedIn: 'root' })
 export class ViewportService {
-  isGreaterThan(breakpoint: PortfolioBreakpoint): Observable<boolean> {
+  observe$(
+    breakpoint: PortfolioBreakpoint,
+    isGreaterThan?: boolean
+  ): Observable<boolean> {
     return merge(
       of(window.innerWidth),
       fromEvent(window, 'resize').pipe(
         map(({ target }: any) => target.innerWidth)
       ),
-    ).pipe(
-      map(width => portfolioBreakpointsMap.get(breakpoint) > width)
+    )
+    .pipe(
+      map(width => {
+        return isGreaterThan ?
+          portfolioBreakpointsMap.get(breakpoint) < width :
+          portfolioBreakpointsMap.get(breakpoint) > width;
+      })
     );
   }
 }

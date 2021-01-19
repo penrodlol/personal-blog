@@ -35,7 +35,7 @@ import { ViewportService } from 'src/app/shared/viewport/viewport.service';
 export class HeaderComponent {
   readonly ROUTES = PORTFOLIO_ROUTES;
   menuToggled = false;
-  showHamburger$ = this.viewportService.isGreaterThan('M').pipe(untilDestroyed(this));
+  showHamburger$ = this.viewportService.observe$('M', false).pipe(untilDestroyed(this));
 
   constructor(
     private scrollWrapperService: ScrollWrapperService,
