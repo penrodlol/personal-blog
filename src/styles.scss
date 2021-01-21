@@ -14,4 +14,7 @@ body {
 
 hr { border: solid 1px var(--tertiary); }
 
-button { -webkit-tap-highlight-color: transparent; }
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
