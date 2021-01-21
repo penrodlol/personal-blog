@@ -6,9 +6,9 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderModule } from './feature/header/header.module';
+import { HeaderModule } from './core/header/header.module';
 import { ScrollWrapperModule } from './core/scroll-wrapper/scroll-wrapper.module';
-import { FooterModule } from './feature/footer/footer.module';
+import { FooterModule } from './core/footer/footer.module';
 import { RouterOutletWrapperModule } from './core/router-outlet-wrapper/router-outlet-wrapper.directive';
 
 @NgModule({

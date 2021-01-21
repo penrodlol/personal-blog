@@ -3,8 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@header/*": ["src/app/feature/header/*"],
-      "@footer/*": ["src/app/feature/footer/*"],
+      "@header/*": ["src/app/core/header/*"],
+      "@footer/*": ["src/app/core/footer/*"],
       "@home/*": ["src/app/feature/home/*"],
       "@core/*": ["src/app/feature/core/*"],
     },
