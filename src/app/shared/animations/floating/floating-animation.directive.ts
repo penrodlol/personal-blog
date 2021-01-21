@@ -1,16 +1,37 @@
-import { Directive, ElementRef, NgModule } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  NgModule,
+  OnDestroy,
+} from '@angular/core';
 import { Sine, TimelineMax } from 'gsap';
 
-@Directive({
-  selector: '[portfolioFloatingAnimation]'
-})
-export class FloatingAnimationDirective {
+@Directive({ selector: '[portfolioFloatingAnimation]' })
+export class FloatingAnimationDirective implements OnDestroy {
+  timeline = new TimelineMax({
+    paused: true,
+    repeat: -1,
+    yoyo: true,
+  });
+
   constructor({ nativeElement }: ElementRef) {
-    new TimelineMax({ repeat: -1, yoyo: true })
-      .set(nativeElement, { x: 0, y: 0, rotation: 0, ease: Sine.easeInOut })
-      .to(nativeElement, 5, { x: 5, y: -5, rotation: 5, ease: Sine.easeInOut })
+    this.timeline
+      .set(nativeElement, {
+        x: 0,
+        y: 0,
+        rotation: 0,
+        ease: Sine.easeInOut,
+      })
+      .to(nativeElement, 5, {
+        x: 5,
+        y: -5,
+        rotation: 5,
+        ease: Sine.easeInOut,
+      })
       .play();
   }
+
+  ngOnDestroy(): void { this.timeline.kill(); }
 }
 
 @NgModule({
