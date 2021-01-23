@@ -62,9 +62,9 @@ export class ButtonComponent implements OnInit, OnDestroy {
 
   applyType(): string {
     if (this.type === 'primary') {
-      return 'bg-accent hover:bg-accent-light text-primary border-2 border-gray-900';
+      return 'bg-delta hover:bg-delta-light text-alpha border-2 border-gray-900';
     } else {
-      return 'border-2 border-accent text-accent-light hover:bg-accent-transparent';
+      return 'border-2 border-delta text-delta-light hover:bg-delta-transparent';
     }
   }
 

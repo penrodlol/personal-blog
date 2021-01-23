@@ -9,25 +9,25 @@ module.exports = (isProd) => ({
     darkMode: false,
     theme: {
       fontFamily: {
-        'nunito': ['"Fira Code"', 'monospace'],
+        sans: ['"Fira Code"'],
       },
       extend: {
         colors: {
           transparent: 'transparent',
           currentColor: 'currentColor',
-          primary: {
-            DEFAULT: 'var(--primary)',
+          alpha: {
+            DEFAULT: 'var(--alpha)',
           },
-          secondary: {
-            DEFAULT: 'var(--secondary)',
+          beta: {
+            DEFAULT: 'var(--beta)',
           },
-          tertiary: {
-            DEFAULT: 'var(--tertiary)',
+          charlie: {
+            DEFAULT: 'var(--charlie)',
           },
-          accent: {
-            transparent: 'var(--accent-transparent)',
-            light: 'var(--accent-light)',
-            DEFAULT: 'var(--accent)',
+          delta: {
+            lightest: 'var(--delta-transparent)',
+            light: 'var(--delta-light)',
+            DEFAULT: 'var(--delta)',
           },
         },
         backgroundColor: theme => ({
@@ -35,7 +35,7 @@ module.exports = (isProd) => ({
           overlay: '#000000de',
          }),
          boxShadow: {
-           secondary: '0 4px 6px -1px var(--secondary), 0 2px 4px -1px var(--secondary)',
+          beta: '0 4px 6px -1px var(--beta), 0 2px 4px -1px var(--beta)',
          }
       },
     },

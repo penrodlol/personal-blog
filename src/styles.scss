@@ -1,18 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
+@import "~@fontsource/fira-code/600.css";
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'scrollbar';
-@import 'colors';
-
-* { font-family: "Fira Code", monospace; }
+@import 'theme';
 
 body {
-  background: rgb(15,15,15);
-  background: linear-gradient(180deg, rgba(15,15,15,1) 0%, rgba(28,28,28,1) 100%);
+  @apply font-semibold;
+  @apply tracking-wide;
+  @apply antialiased;
+  @apply text-charlie;
+  @apply bg-alpha;
 }
 
-hr { border: solid 1px var(--tertiary); }
+hr { border: solid 1px var(--charlie); }
 
 button,
 a {
