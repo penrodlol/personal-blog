@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 
 import { FooterComponent } from './components/footer.component';
-import { portfolioTwitter, portfolioGithub, portfolioEnvelope } from 'src/app';
+import { portfolioTwitter, portfolioGithub, portfolioEnvelope } from 'src/app/common/svg';
 
 @NgModule({
   declarations: [

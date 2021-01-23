@@ -8,8 +8,8 @@ import {
     ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { myIcons } from 'src/app/svg/my-icons.model';
 import { TimelineMax, Expo } from 'gsap';
+import { myIcons } from 'src/app/common/svg';
 
 export type IButtonSize = 's' | 'm' | 'l';
 export type IButtonType = 'primary' | 'secondary';

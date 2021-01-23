@@ -63,12 +63,12 @@
     "generateType": "false",
     "delimiter": "KEBAB",
     "conversionType": "files",
-    "iconsFolderName": "svg",
+    "iconsFolderName": ".",
     "prefix": "portfolio",
     "srcFiles": [
       "./src/assets/svg/*.svg"
     ],
-    "outputDirectory": "./src/app",
+    "outputDirectory": "./src/app/common/svg",
     "svgoConfig": {
       "plugins": [
         {
